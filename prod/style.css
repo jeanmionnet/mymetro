@@ -1,3 +1,37 @@
-
+@font-face {
+  font-family: "Ubuntu-Regular";
+  src: url("../prod/fonts/Ubuntu/Ubuntu-Regular.ttf"); }
+@font-face {
+  font-family: "Ubuntu-Light";
+  src: url("../prod/fonts/Ubuntu/Ubuntu-Light.ttf"); }
+@font-face {
+  font-family: "Ubuntu-Bold";
+  src: url("../prod/fonts/Ubuntu/Ubuntu-Bold.ttf"); }
+body {
+  margin: 0 auto;
+  padding: 0; }
+  body #navbar {
+    display: inline-flex;
+    height: 120px;
+    background-color: black;
+    width: 100vw; }
+    body #navbar #navbar_brand img {
+      height: 120px;
+      margin-left: 20px; }
+    body #navbar ul {
+      list-style: none;
+      display: inline-flex;
+      margin-top: 60px; }
+      body #navbar ul li {
+        margin-right: 40px;
+        font-family: "Ubuntu-Bold"; }
+        body #navbar ul li a {
+          font-size: 20px;
+          text-decoration: none;
+          color: #fff;
+          transition: 0.1s ease-in; }
+          body #navbar ul li a:hover {
+            color: #77D353;
+            transition: 0.1s ease-in; }
 
 /*# sourceMappingURL=style.css.map */
