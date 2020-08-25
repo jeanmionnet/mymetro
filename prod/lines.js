@@ -19,6 +19,8 @@ const lines = () => $.ajax({
 
     // POUR CHAQUE ELEMENT TROUVE, LES GENERE EN HTML
     for (const item of data) {
+        console.log(item);
+        let circle = document.createElement('div');
         let line = document.createElement('a'); // Format à changer - PHASE TEST
         let name = item.shortName;
         let type = item.type;
@@ -26,51 +28,109 @@ const lines = () => $.ajax({
         // TRAMS
         if (item.mode === "TRAM") {
             if (type === "TRAM") {
-                tram_section.append(line);
+                tram_section.append(circle);
+                circle.append(line);
+                circle.className = 'circle';
+                circle.style.backgroundColor = `#${item.color}`;
+                circle.style.color = `#${item.textColor}`;
+                circle.style.borderRadius = "50%";
                 line.innerText = `${name}`;
             }
         } else // BUS OU TRAINS
         {
             if (type === "TRAM") {
-                tram_section.append(line);
+                tram_section.append(circle);
+                circle.append(line);
+                circle.className = 'circle';
+                circle.style.backgroundColor = `#${item.color}`;
+                circle.style.color = `#${item.textColor}`;
+                circle.style.borderRadius = "50%";
                 line.innerText = `${name}`;
             } else if (type === "CHRONO") {
             // CHRONO BUS
-                chrono_section.append(line);
+                chrono_section.append(circle);
+                circle.append(line);
+                circle.className = 'circle';
+                circle.style.backgroundColor = `#${item.color}`;
+                circle.style.color = `#${item.textColor}`;
+                circle.style.borderRadius = "50%";
                 line.innerText = `${name}`;
             } else if (type === "PROXIMO") {
             // PROXIMO BUS
-                proximo_section.append(line);
+                proximo_section.append(circle);
+                circle.append(line);
+                circle.className = 'circle';
+                circle.style.backgroundColor = `#${item.color}`;
+                circle.style.color = `#${item.textColor}`;
+                circle.style.borderRadius = "25%";
                 line.innerText = `${name}`;
             } else if (type === "FLEXO") {
             // FLEXO BUS
-                flexo_section.append(line);
+                flexo_section.append(circle);
+                circle.append(line);
+                circle.className = 'circle';
+                circle.style.backgroundColor = `#${item.color}`;
+                circle.style.color = `#${item.textColor}`;
+                circle.style.borderRadius = "25%";
                 line.innerText = `${name}`;
             } else if (type === "C38") {
-        // BUS TRANSISERES
-                transisere_section.append(line);
+            // BUS TRANSISERES
+                transisere_section.append(circle);
+                circle.append(line);
+                circle.className = 'circle';
+                circle.style.backgroundColor = `#${item.color}`;
+                circle.style.color = `#${item.textColor}`;
+                circle.style.borderRadius = "10px";
+                circle.style.width = "150px";
                 line.innerText = `${name}`;
             } else if (type === "Structurantes" 
             || type === "Secondaires") {
             // BUS TOUGO
-                tougo_section.append(line);
+                tougo_section.append(circle);
+                circle.append(line);
+                circle.className = 'circle';
+                circle.style.backgroundColor = `#${item.color}`;
+                circle.style.color = `#${item.textColor}`;
+                circle.style.borderRadius = "10px";
+                circle.style.width = "150px";
                 line.innerText = `${name}`;
             } else if (type === "Urbaines" 
             || type === "Interurbaines") {
             // BUS PAYS VOIRONNAIS
-                pays_voironnais_section.append(line);
+                pays_voironnais_section.append(circle);
+                circle.append(line);
+                circle.className = 'circle';
+                circle.style.backgroundColor = `#${item.color}`;
+                circle.style.color = `#${item.textColor}`;
+            circle.style.borderRadius = "10px";
+                circle.style.width = "150px";
                 line.innerText = `${name}`;
             } else if (type === "SCOL") {
             // BUS SCOLAIRES
-                scolaire_section.append(line);
+                scolaire_section.append(circle);
+                circle.append(line);
+                circle.className = 'circle';
+                circle.style.backgroundColor = `#${item.color}`;
+                circle.style.color = `#${item.textColor}`;
+                circle.style.borderRadius = "25%";
                 line.innerText = `${name}`;
             } else if (type === "TAD") {
             // BUS A LA DEMANDE
-                tad_section.append(line);
+                tad_section.append(circle);
+                circle.append(line);
+                circle.className = 'circle';
+                circle.style.backgroundColor = `#${item.color}`;
+                circle.style.color = `#${item.textColor}`;
+                circle.style.borderRadius = "25%";
                 line.innerText = `${name}`;
             } else if (type === "SNC") {
             // TRAINS
-                snc_section.append(line);
+                snc_section.append(circle);
+                circle.append(line);
+                circle.className = 'circle';
+                circle.style.backgroundColor = `#${item.color}`;
+                circle.style.color = `#${item.textColor}`;
+                circle.style.borderRadius = "25%";
                 line.innerText = `${name}`;
             }
         }
