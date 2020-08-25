@@ -9,19 +9,22 @@
   src: url("../prod/fonts/Ubuntu/Ubuntu-Bold.ttf"); }
 body {
   margin: 0 auto;
-  padding: 0; }
+  padding: 0;
+  background-color: #343F4B; }
   body #navbar {
     display: inline-flex;
     height: 120px;
     background-color: black;
-    width: 100vw; }
+    width: 100vw;
+    position: fixed; }
     body #navbar #navbar_brand img {
       height: 120px;
       margin-left: 20px; }
     body #navbar ul {
       list-style: none;
-      display: inline-flex;
-      margin-top: 60px; }
+      display: flex;
+      margin-top: 60px;
+      align-items: baseline; }
       body #navbar ul li {
         margin-right: 40px;
         font-family: "Ubuntu-Bold"; }
@@ -29,9 +32,84 @@ body {
           font-size: 20px;
           text-decoration: none;
           color: #fff;
-          transition: 0.1s ease-in; }
+          transition: all 0.1s ease-in; }
           body #navbar ul li a:hover {
             color: #77D353;
-            transition: 0.1s ease-in; }
+            transition: all 0.1s ease-in; }
+      body #navbar ul #account {
+        position: absolute;
+        right: 0; }
+        body #navbar ul #account svg path {
+          transition: all 0.1s ease-in; }
+        body #navbar ul #account:hover svg path {
+          fill: #77D353;
+          transition: all 0.1s ease-in; }
+  body button {
+    display: none;
+    background-color: transparent;
+    border: none !important;
+    position: absolute;
+    right: 25px;
+    top: 27px; }
+    body button:hover {
+      cursor: pointer;
+      transition: all 0.1s ease-in; }
+      body button:hover svg path {
+        fill: #77D353;
+        transition: all 0.1s ease-in; }
+  body #modal_menu {
+    display: none;
+    text-align: center;
+    padding-top: 80px; }
+    body #modal_menu ul {
+      list-style: none;
+      margin-top: 50px;
+      padding: 0; }
+      body #modal_menu ul li {
+        font-family: "Ubuntu-Bold"; }
+        body #modal_menu ul li a {
+          font-size: 20px;
+          text-decoration: none;
+          color: #fff;
+          transition: all 0.1s ease-in; }
+          body #modal_menu ul li a:hover {
+            color: #77D353;
+            transition: all 0.1s ease-in; }
+      body #modal_menu ul #modal_account {
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translate(-50%, -50%); }
+        body #modal_menu ul #modal_account svg path {
+          transition: all 0.1s ease-in; }
+        body #modal_menu ul #modal_account:hover a {
+          color: #77D353;
+          transition: all 0.1s ease-in; }
+        body #modal_menu ul #modal_account:hover svg path {
+          fill: #77D353;
+          transition: all 0.1s ease-in; }
+      body #modal_menu ul .divider {
+        margin: 25px auto !important;
+        width: 70vw;
+        height: 2px;
+        background: #fff;
+        margin: 0 auto; }
+
+@media (max-width: 992px) {
+  #navbar {
+    height: 80px !important; }
+    #navbar #navbar_brand img {
+      height: 80px !important; }
+    #navbar #links_list {
+      display: none !important; }
+
+  .display {
+    display: block !important; }
+
+  .not_display {
+    display: none !important; }
+
+  #modal_menu {
+    display: none; } }
 
 /*# sourceMappingURL=style.css.map */
