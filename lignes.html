@@ -5,23 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Primary Meta Tags -->
-    <meta name="title" content="myMetro">
+    <meta name="title" content="myMetro - lignes">
     <meta name="description" content="Sur le réseau TAG et Transisère, en Vélo, en Voiture ou en Train, mobilites-m vous informe sur vos déplacements dans Grenoble et l'aire Grenobloise.">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://mymetro.fr/">
-    <meta property="og:title" content="myMetro">
+    <meta property="og:url" content="https://mymetro/lignes.fr/">
+    <meta property="og:title" content="myMetro - lignes">
     <meta property="og:description" content="Sur le réseau TAG et Transisère, en Vélo, en Voiture ou en Train, mobilites-m vous informe sur vos déplacements dans Grenoble et l'aire Grenobloise.">
     <meta property="og:image" content="https://store-images.s-microsoft.com/image/apps.65024.13510798885978515.7731c0b5-e283-433c-9f78-1d036a9fd46a.6c6db849-74be-4e69-a97d-ad7af68ba97d?mode=scale&q=90&h=200&w=200&background=%23464646">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://mymetro.fr/">
-    <meta property="twitter:title" content="myMetro">
+    <meta property="twitter:url" content="https://mymetro/lignes.fr/">
+    <meta property="twitter:title" content="myMetro - lignes">
     <meta property="twitter:description" content="Sur le réseau TAG et Transisère, en Vélo, en Voiture ou en Train, mobilites-m vous informe sur vos déplacements dans Grenoble et l'aire Grenobloise.">
     <meta property="twitter:image" content="https://store-images.s-microsoft.com/image/apps.65024.13510798885978515.7731c0b5-e283-433c-9f78-1d036a9fd46a.6c6db849-74be-4e69-a97d-ad7af68ba97d?mode=scale&q=90&h=200&w=200&background=%23464646">
-    <title>myMétro</title>
+    <title>myMétro - lignes</title>
 
     <!-- CSS -->
     <link rel="stylesheet" href="prod/style.css">
@@ -106,12 +106,48 @@
         </ul>
     </div>
 
-    <!-- CONTENU PRINCIPAL ACCUEIL -->
-    <div id="main_content">
-        <form action="GET">
-            <h1><label for="search">RECHERCHER</label></h1>
-            <input type="text" id="search" placeholder="Chercher un lieu, un arrêt...">
-        </form>
+    <!-- TOUTES LES LIGNES -->
+    <div id="all_lines">
+        <!-- Trams -->
+        <div class="categories" id="tram_section">
+            <h1 class="categories_header">Tram</h1>
+        </div>
+        <!-- CHRONOBUS -->
+        <div class="categories" id="chrono">
+            <h1 class="categories_header">Chrono</h1>
+        </div>
+        <!-- PROXIMO -->
+        <div class="categories" id="proximo">
+            <h1 class="categories_header">Proximo</h1>
+        </div>
+        <!-- FLEXO -->
+        <div class="categories" id="flexo">
+            <h1 class="categories_header">Flexo</h1>
+        </div>
+        <!-- Transisère -->
+        <div class="categories" id="transisere">
+            <h1 class="categories_header">Transisère</h1>
+        </div>
+        <!-- TouGo -->
+        <div class="categories" id="tougo">
+            <h1 class="categories_header">TouGo</h1>
+        </div>
+        <!-- Pays Voironnais -->
+        <div class="categories" id="pays_voironnais">
+            <h1 class="categories_header">Pays Voironnais</h1>
+        </div>
+        <!-- Bus scolaires -->
+        <div class="categories" id="scolaire">
+            <h1 class="categories_header">Scolaire</h1>
+        </div>
+        <!-- Transports à la demande -->
+        <div class="categories" id="tad">
+            <h1 class="categories_header">Transports à la demande</h1>
+        </div>
+        <!-- Trains -->
+        <div class="categories" id="snc">
+            <h1 class="categories_header">Trains</h1>
+        </div>
     </div>
 
     <!-- JQUERY -->
@@ -119,5 +155,6 @@
 
     <!-- JS -->
     <script src="prod/main.js"></script>
+    <script src="prod/lines.js"></script>
 </body>
 </html>
