@@ -83,7 +83,6 @@ const lines = () => $.ajax({
                 circle.style.backgroundColor = `#${color}`;
                 circle.style.color = `#${text_color}`;
                 circle.style.borderRadius = "10px";
-                circle.style.width = "150px";
                 line.innerText = `${name}`;
             } else if (type === "Structurantes" 
             || type === "Secondaires") {
@@ -94,7 +93,6 @@ const lines = () => $.ajax({
                 circle.style.backgroundColor = `#${color}`;
                 circle.style.color = `#${text_color}`;
                 circle.style.borderRadius = "10px";
-                circle.style.width = "150px";
                 line.innerText = `${name}`;
             } else if (type === "Urbaines" 
             || type === "Interurbaines") {
@@ -104,8 +102,7 @@ const lines = () => $.ajax({
                 circle.className = 'circle';
                 circle.style.backgroundColor = `#${color}`;
                 circle.style.color = `#${text_color}`;
-            circle.style.borderRadius = "10px";
-                circle.style.width = "150px";
+                circle.style.borderRadius = "10px";
                 line.innerText = `${name}`;
             } else if (type === "TAD") {
             // BUS A LA DEMANDE

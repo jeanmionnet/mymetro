@@ -1,9 +1,16 @@
+// DATE (AJUSTE POUR L'HEURE LOCALE)
+let date = new Date();
+let timestamp = date.getTime() + 7200000;
+
 // IDENTIFIANT DE LA LIGNE SELECTIONNEE
 const id = localStorage.getItem('line_id');
 
 // SENS DE LA LIGNE & BOUTON SWAP
 let direction = 0;
 const swap_btn = $('#swap');
+
+// NOM DE LA LIGNE
+const line = $('#line');
 
 // TIMELINE POUR ITINERAIRES & HORAIRES
 const depart = $('#from');
@@ -16,7 +23,10 @@ const line_details = () => $.ajax({
     type: "GET",
     dataType: "json",
 }).done((data) => {
+    // REFRESH
     timeline.html('');
+    // NOM DE LA LIGNE
+    line.html(`coucou`);
     // LISTE DES ARRETS
     const trip = data[direction].arrets;
     // GENERATE TIMELINE
@@ -27,6 +37,10 @@ const line_details = () => $.ajax({
     arrivee.html(`${to}`);
 
     for (let i = 0; i < trip.length; i++) {
+        // HEURE DE PASSAGE
+        let schedule = trip[i].trips[0];
+        schedule = new Date((schedule + 7200) * 1000).toISOString().substr(11, 5);
+
         // GENERE LE BLOC "ARRET"
         let entry = document.createElement('div');
         entry.className = 'entry';
@@ -36,9 +50,9 @@ const line_details = () => $.ajax({
         let title = document.createElement('div');
         title.className = 'title';
         entry.append(title);
-        let schedule = document.createElement('h3');
-        title.append(schedule);
-        schedule.innerText = `12h00`;
+        let schedule_box = document.createElement('h3');
+        title.append(schedule_box);
+        schedule_box.innerText = `${schedule}`;
 
         // GENERE LE NOM DE L'ARRET CORRESPONDANT
         let body = document.createElement('div');
