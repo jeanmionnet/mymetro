@@ -141,9 +141,16 @@ body {
         background-color: pink;
         margin: 5px;
         float: left;
-        text-align: center; }
-        body #all_lines .categories .circle a {
-          line-height: 100px;
+        text-align: center;
+        cursor: pointer;
+        transition: all 0.1s ease-in; }
+        body #all_lines .categories .circle:hover {
+          filter: brightness(1.2);
+          transform: scale(1.02) translate(1px, -1px);
+          box-shadow: -1px 1px 3px 1px rgba(0, 0, 0, 0.5);
+          transition: all 0.1s ease-in; }
+        body #all_lines .categories .circle p {
+          line-height: 50px;
           font-family: "Ubuntu-Bold";
           font-size: 24px; }
 

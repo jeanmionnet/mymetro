@@ -20,8 +20,8 @@ const lines = () => $.ajax({
     // POUR CHAQUE ELEMENT TROUVE, LES GENERE EN HTML
     for (const item of data) {
         console.log(item);
-        let circle = document.createElement('div');
-        let line = document.createElement('a'); // Format à changer - PHASE TEST
+        let circle = document.createElement('a');
+        let line = document.createElement('p'); // Format à changer - PHASE TEST
         let name = item.shortName;
         let type = item.type;
 
