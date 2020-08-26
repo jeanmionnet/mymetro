@@ -170,7 +170,7 @@ body {
   body #timeline_box {
     min-height: 100vh;
     width: 50vw;
-    margin-top: 150px;
+    margin: 80px 30px auto 30px;
     font-family: "Ubuntu-Regular";
     color: #333; }
     body #timeline_box * {
@@ -182,17 +182,24 @@ body {
       display: flex; }
       body #timeline_box #trajet #swap {
         padding-top: 20px; }
-        body #timeline_box #trajet #swap svg path {
+        body #timeline_box #trajet #swap svg {
+          border: 3px solid #77D353;
+          border-radius: 3px;
           transition: all 0.1s ease-in; }
+          body #timeline_box #trajet #swap svg path {
+            transition: all 0.1s ease-in; }
         body #timeline_box #trajet #swap:hover {
           cursor: pointer; }
-          body #timeline_box #trajet #swap:hover svg path {
-            fill: #77D353;
+          body #timeline_box #trajet #swap:hover svg {
+            border: 3px solid #fff;
             transition: all 0.1s ease-in; }
+            body #timeline_box #trajet #swap:hover svg path {
+              fill: #77D353;
+              transition: all 0.1s ease-in; }
     body #timeline_box .timeline {
       width: 100%;
       background: #fff;
-      padding: 50px 50px;
+      padding: 50px 50px 20px 50px;
       border-radius: 20px;
       background-color: #5A6978;
       position: relative; }
@@ -238,13 +245,11 @@ body {
             margin: 0;
             font-size: 100%; }
         body #timeline_box .timeline .entry .body {
-          margin: 0 0 2em;
+          margin-bottom: 10px;
           float: right;
           width: 66%;
           padding-left: 30px; }
           body #timeline_box .timeline .entry .body p {
-            line-height: 0.5em;
-            padding-top: 8px;
             color: #fff; }
             body #timeline_box .timeline .entry .body p:first-child {
               margin-top: 0;
@@ -268,7 +273,23 @@ body {
     display: none; }
 
   #main_content, #all_lines {
-    padding: 0 30px 0 30px !important; } }
+    padding: 0 15px 0 15px !important;
+    margin-top: 80px !important; }
+    #main_content form, #all_lines form {
+      margin-top: 120px !important; }
+
+  #timeline_box {
+    margin-top: 30px !important;
+    width: auto !important; }
+    #timeline_box #trajet {
+      display: block !important;
+      text-align: center; }
+      #timeline_box #trajet #from {
+        margin-bottom: 0; }
+      #timeline_box #trajet #to {
+        margin-left: 0; }
+      #timeline_box #trajet #swap svg {
+        transform: rotate(90deg); } }
 @media (max-width: 768px) {
   #main_content form {
     text-align: center; }
@@ -280,7 +301,7 @@ body {
     width: 100px !important;
     height: 50px !important; }
   #all_lines p {
-    line-height: 25px !important;
+    line-height: 20px !important;
     font-family: "Ubuntu-Bold";
     font-size: 16px !important; }
   #all_lines #tad p {
