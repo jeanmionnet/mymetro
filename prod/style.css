@@ -141,11 +141,104 @@ body {
         background-color: pink;
         margin: 5px;
         float: left;
-        text-align: center; }
-        body #all_lines .categories .circle a {
-          line-height: 100px;
+        text-align: center;
+        text-decoration: none;
+        cursor: pointer;
+        transition: all 0.1s ease-in; }
+        body #all_lines .categories .circle:hover {
+          filter: brightness(1.2);
+          transform: scale(1.02) translate(1px, -1px);
+          box-shadow: -1px 1px 3px 1px rgba(0, 0, 0, 0.5);
+          transition: all 0.1s ease-in; }
+        body #all_lines .categories .circle p {
+          line-height: 50px;
           font-family: "Ubuntu-Bold";
           font-size: 24px; }
+  body #timeline_box {
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    width: 100vw;
+    margin: 150px 100px;
+    font-family: "Ubuntu-Regular";
+    color: #333;
+    box-sizing: border-box; }
+    body #timeline_box * {
+      box-sizing: border-box; }
+    body #timeline_box #trajet {
+      text-indent: 20px;
+      font-family: "Ubuntu-Bold";
+      color: #fff;
+      display: flex; }
+      body #timeline_box #trajet #swap {
+        padding-top: 20px; }
+        body #timeline_box #trajet #swap svg path {
+          transition: all 0.1s ease-in; }
+        body #timeline_box #trajet #swap:hover {
+          cursor: pointer; }
+          body #timeline_box #trajet #swap:hover svg path {
+            fill: #77D353;
+            transition: all 0.1s ease-in; }
+    body #timeline_box .timeline {
+      width: 100%;
+      background: #fff;
+      padding: 50px 50px;
+      border-radius: 20px;
+      background-color: #5A6978;
+      position: relative; }
+      body #timeline_box .timeline:before {
+        content: '';
+        position: absolute;
+        top: 0px;
+        left: calc(33% + 15px);
+        bottom: 0px;
+        width: 4px;
+        background: #000; }
+      body #timeline_box .timeline:after {
+        content: "";
+        display: table;
+        clear: both; }
+      body #timeline_box .timeline .entry {
+        clear: both;
+        text-align: left;
+        position: relative; }
+        body #timeline_box .timeline .entry .title {
+          margin-bottom: .5em;
+          float: left;
+          width: 33%;
+          padding-right: 30px;
+          text-align: right;
+          position: relative; }
+          body #timeline_box .timeline .entry .title:before {
+            content: '';
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            border: 4px solid #77D353;
+            background-color: #77D353;
+            border-radius: 100%;
+            top: 15%;
+            right: -8px;
+            z-index: 1; }
+          body #timeline_box .timeline .entry .title h3 {
+            margin: 0;
+            font-family: "Ubuntu-Bold";
+            color: #fff; }
+          body #timeline_box .timeline .entry .title p {
+            margin: 0;
+            font-size: 100%; }
+        body #timeline_box .timeline .entry .body {
+          margin: 0 0 2em;
+          float: right;
+          width: 66%;
+          padding-left: 30px; }
+          body #timeline_box .timeline .entry .body p {
+            line-height: 0.5em;
+            padding-top: 8px;
+            color: #fff; }
+            body #timeline_box .timeline .entry .body p:first-child {
+              margin-top: 0;
+              font-weight: 400; }
 
 @media (max-width: 992px) {
   #navbar {

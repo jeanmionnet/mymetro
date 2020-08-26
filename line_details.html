@@ -4,24 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Primary Meta Tags -->
-    <meta name="title" content="myMetro - lignes">
+    <!-- Primary Meta Tags !!!TITRE A COMPLETER DYNAMIQUEMENT!!!-->
+    <meta name="title" content="myMetro - Détails de la ligne ???"> 
     <meta name="description" content="Sur le réseau TAG et Transisère, en Vélo, en Voiture ou en Train, mobilites-m vous informe sur vos déplacements dans Grenoble et l'aire Grenobloise.">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://mymetro/lignes.fr/">
-    <meta property="og:title" content="myMetro - lignes">
+    <meta property="og:url" content="https://mymetro.fr/">
+    <meta property="og:title" content="myMetro - Détails de la ligne ???">
     <meta property="og:description" content="Sur le réseau TAG et Transisère, en Vélo, en Voiture ou en Train, mobilites-m vous informe sur vos déplacements dans Grenoble et l'aire Grenobloise.">
     <meta property="og:image" content="https://store-images.s-microsoft.com/image/apps.65024.13510798885978515.7731c0b5-e283-433c-9f78-1d036a9fd46a.6c6db849-74be-4e69-a97d-ad7af68ba97d?mode=scale&q=90&h=200&w=200&background=%23464646">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://mymetro/lignes.fr/">
-    <meta property="twitter:title" content="myMetro - lignes">
+    <meta property="twitter:url" content="https://mymetro.fr/">
+    <meta property="twitter:title" content="myMetro - Détails de la ligne ???">
     <meta property="twitter:description" content="Sur le réseau TAG et Transisère, en Vélo, en Voiture ou en Train, mobilites-m vous informe sur vos déplacements dans Grenoble et l'aire Grenobloise.">
     <meta property="twitter:image" content="https://store-images.s-microsoft.com/image/apps.65024.13510798885978515.7731c0b5-e283-433c-9f78-1d036a9fd46a.6c6db849-74be-4e69-a97d-ad7af68ba97d?mode=scale&q=90&h=200&w=200&background=%23464646">
-    <title>myMétro - lignes</title>
+    <title>myMétro</title>
 
     <!-- CSS -->
     <link rel="stylesheet" href="prod/style.css">
@@ -106,47 +106,26 @@
         </ul>
     </div>
 
-    <!-- TOUTES LES LIGNES -->
-    <div id="all_lines">
-        <!-- Trams -->
-        <div class="categories" id="tram_section">
-            <h1 class="categories_header">Tram</h1>
+    <!-- PROCHAINS PASSAGES -->
+    <div id="timeline_box">
+        <div id="trajet">
+            <h2 id="from"><!-- DEPART --></h2> 
+            <div id="swap">
+                <svg id="Layer" enable-background="new 0 0 64 64" height="32" viewBox="0 0 64 64" width="32" xmlns="http://www.w3.org/2000/svg"><path fill="#fff" d="m10 26h39.172l-3.586 3.586c-.781.781-.781 2.047 0 2.828.391.391.902.586 1.414.586s1.023-.195 1.414-.586l7-7c.781-.781.781-2.047 0-2.828l-7-7c-.781-.781-2.047-.781-2.828 0s-.781 2.047 0 2.828l3.586 3.586h-39.172c-1.104 0-2 .896-2 2s.896 2 2 2z"/><path fill="#fff" d="m54 38h-39.172l3.586-3.586c.781-.781.781-2.047 0-2.828-.78-.781-2.048-.781-2.828 0l-7 7c-.781.781-.781 2.047 0 2.828l7 7c.39.391.902.586 1.414.586s1.024-.195 1.414-.586c.781-.781.781-2.047 0-2.828l-3.586-3.586h39.172c1.104 0 2-.896 2-2s-.896-2-2-2z"/></svg>
+            </div>
+            <h2 id="to"><!-- ARRIVEE --></h2>
         </div>
-        <!-- CHRONOBUS -->
-        <div class="categories" id="chrono">
-            <h1 class="categories_header">Chrono</h1>
-        </div>
-        <!-- PROXIMO -->
-        <div class="categories" id="proximo">
-            <h1 class="categories_header">Proximo</h1>
-        </div>
-        <!-- FLEXO -->
-        <div class="categories" id="flexo">
-            <h1 class="categories_header">Flexo</h1>
-        </div>
-        <!-- Transisère -->
-        <div class="categories" id="transisere">
-            <h1 class="categories_header">Transisère</h1>
-        </div>
-        <!-- TouGo -->
-        <div class="categories" id="tougo">
-            <h1 class="categories_header">TouGo</h1>
-        </div>
-        <!-- Pays Voironnais -->
-        <div class="categories" id="pays_voironnais">
-            <h1 class="categories_header">Pays Voironnais</h1>
-        </div>
-        <!-- Transports à la demande -->
-        <div class="categories" id="tad">
-            <h1 class="categories_header">Transports à la demande</h1>
+        <div class="timeline">
+            <!-- DIFFERENTS ARRETS & HORAIRES -->
         </div>
     </div>
+    
 
     <!-- JQUERY -->
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
 
     <!-- JS -->
     <script src="prod/main.js"></script>
-    <script src="prod/lines.js"></script>
+    <script src="prod/line_details.js"></script>
 </body>
 </html>
