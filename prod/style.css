@@ -7,6 +7,13 @@
 @font-face {
   font-family: "Ubuntu-Bold";
   src: url("../prod/fonts/Ubuntu/Ubuntu-Bold.ttf"); }
+@keyframes tilt {
+  0% {
+    opacity: 1; }
+  40% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
 h2, h1 {
   font-family: "Ubuntu-Bold";
   color: #fff; }
@@ -111,6 +118,26 @@ body {
         height: 2px;
         background: #fff;
         margin: 0 auto; }
+  body #homepage_img {
+    width: auto;
+    height: 700px;
+    background-image: url("../prod/images/grenoble-alpes-metropole.jpg");
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed; }
+  body #info {
+    margin-top: 120px;
+    background-color: red;
+    padding: 20px 0 20px 40px;
+    color: #fff;
+    font-family: "Ubuntu-Regular"; }
+    body #info #alert_svg {
+      animation-duration: 1s;
+      animation-name: tilt;
+      animation-iteration-count: infinite;
+      transition: none; }
+    body #info p {
+      margin: 0; }
   body #main_content, body #all_lines {
     padding: 0 100px 0 100px;
     width: auto; }
@@ -271,6 +298,9 @@ body {
 
   #modal_menu {
     display: none; }
+
+  #info {
+    margin-top: 80px !important; }
 
   #main_content, #all_lines {
     padding: 0 15px 0 15px !important;
