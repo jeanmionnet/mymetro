@@ -121,6 +121,16 @@ body {
         height: 2px;
         background: #fff;
         margin: 0 auto; }
+  body #dynamic_data {
+    margin-top: 120px;
+    padding: 10px 30px;
+    background-color: rgba(0, 0, 0, 0.452);
+    text-align: right; }
+    body #dynamic_data p {
+      margin: 0; }
+      body #dynamic_data p svg {
+        margin: auto 10px;
+        cursor: pointer; }
   body #homepage_img {
     width: auto;
     height: 600px;
@@ -146,7 +156,6 @@ body {
   body .display_info {
     display: block !important; }
   body #info {
-    margin-top: 120px;
     background-color: #D36F53;
     padding: 20px 40px 20px 40px;
     color: #fff;
@@ -185,7 +194,7 @@ body {
   body #all_lines {
     display: flex;
     flex-direction: column;
-    margin-top: 160px; }
+    margin-top: 120px; }
     body #all_lines h1 {
       padding-left: 10px;
       margin-bottom: 0; }
@@ -340,8 +349,10 @@ body {
   #modal_menu {
     display: none; }
 
+  #dynamic_data {
+    margin-top: 80px !important; }
+
   #info {
-    margin-top: 80px !important;
     display: none; }
 
   #homepage_img #homepage_txt {
