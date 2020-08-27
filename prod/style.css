@@ -26,6 +26,9 @@ body {
     display: inline-flex;
     height: 120px;
     background-color: black;
+    -webkit-box-shadow: 0px 10px 14px -6px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 10px 14px -6px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 10px 14px -6px rgba(0, 0, 0, 0.75);
     width: 100vw;
     position: fixed;
     top: 0;
@@ -120,17 +123,35 @@ body {
         margin: 0 auto; }
   body #homepage_img {
     width: auto;
-    height: 700px;
+    height: 600px;
     background-image: url("../prod/images/grenoble-alpes-metropole.jpg");
     background-position: center;
     background-size: cover;
     background-attachment: fixed; }
+    body #homepage_img #homepage_txt {
+      padding-left: 140px;
+      padding-top: 280px;
+      line-height: 2; }
+      body #homepage_img #homepage_txt h1 {
+        font-size: 40px;
+        font-weight: bold; }
+      body #homepage_img #homepage_txt h2 {
+        font-size: 26px;
+        font-weight: bold; }
+      body #homepage_img #homepage_txt h1, body #homepage_img #homepage_txt h2 {
+        color: black; }
+        body #homepage_img #homepage_txt h1 span, body #homepage_img #homepage_txt h2 span {
+          padding: 10px;
+          background-color: rgba(119, 211, 83, 0.7); }
+  body .display_info {
+    display: block !important; }
   body #info {
     margin-top: 120px;
-    background-color: red;
-    padding: 20px 0 20px 40px;
+    background-color: #D36F53;
+    padding: 20px 40px 20px 40px;
     color: #fff;
-    font-family: "Ubuntu-Regular"; }
+    font-family: "Ubuntu-Bold";
+    display: none; }
     body #info #alert_svg {
       animation-duration: 1s;
       animation-name: tilt;
@@ -138,11 +159,17 @@ body {
       transition: none; }
     body #info p {
       margin: 0; }
+    body #info a {
+      color: black;
+      transition: all 0.1s ease-in; }
+      body #info a:hover {
+        color: blue;
+        transition: all 0.1s ease-in; }
   body #main_content, body #all_lines {
     padding: 0 100px 0 100px;
     width: auto; }
     body #main_content form, body #all_lines form {
-      margin: 160px 30px; }
+      margin: 40px 30px; }
       body #main_content form h2, body #all_lines form h2 {
         padding-left: 10px;
         margin-bottom: 15px; }
@@ -161,13 +188,20 @@ body {
     margin-top: 160px; }
     body #all_lines h1 {
       padding-left: 10px;
-      margin-bottom: 15px; }
+      margin-bottom: 0; }
+    body #all_lines h3 {
+      margin-top: 5px;
+      margin-bottom: 30px;
+      padding-left: 10px;
+      opacity: 0.8; }
     body #all_lines #tram_section a, body #all_lines #chrono a, body #all_lines #proximo a, body #all_lines #flexo a, body #all_lines #tad a {
       width: 100px;
       height: 100px; }
     body #all_lines #pays_voironnais a, body #all_lines #tougo a, body #all_lines #transisere a {
       width: 150px;
       height: 100px; }
+    body #all_lines #pays_voironnais h1, body #all_lines #tougo h1, body #all_lines #transisere h1 {
+      margin-bottom: 30px; }
     body #all_lines .categories {
       margin-top: 50px;
       padding: 20px;
@@ -191,22 +225,29 @@ body {
           line-height: 50px;
           font-family: "Ubuntu-Bold";
           font-size: 24px; }
-  body #line {
-    padding-bottom: 50px;
-    margin: 0; }
+    body #all_lines #tad h1 {
+      margin-bottom: 30px; }
+  body #intro {
+    margin-top: 160px;
+    margin-left: 40px; }
+    body #intro h1 {
+      margin-bottom: 0; }
   body #timeline_box {
     min-height: 100vh;
-    width: 50vw;
-    margin: 80px 30px auto 30px;
+    width: 30vw;
+    margin: 80px 40px auto 40px;
     font-family: "Ubuntu-Regular";
     color: #333; }
     body #timeline_box * {
       box-sizing: border-box; }
     body #timeline_box #trajet {
-      text-indent: 20px;
       font-family: "Ubuntu-Bold";
       color: #fff;
       display: flex; }
+      body #timeline_box #trajet #from {
+        margin-right: 10px; }
+      body #timeline_box #trajet #to {
+        margin-left: 10px; }
       body #timeline_box #trajet #swap {
         padding-top: 20px; }
         body #timeline_box #trajet #swap svg {
@@ -226,7 +267,7 @@ body {
     body #timeline_box .timeline {
       width: 100%;
       background: #fff;
-      padding: 50px 50px 20px 50px;
+      padding: 50px 50px 0px 50px;
       border-radius: 20px;
       background-color: #5A6978;
       position: relative; }
@@ -300,13 +341,29 @@ body {
     display: none; }
 
   #info {
-    margin-top: 80px !important; }
+    margin-top: 80px !important;
+    display: none; }
+
+  #homepage_img #homepage_txt {
+    padding-left: 15px !important;
+    padding-top: 180px !important; }
+    #homepage_img #homepage_txt h1 {
+      font-size: 30px !important;
+      font-weight: bold; }
+    #homepage_img #homepage_txt h2 {
+      font-size: 20px !important;
+      font-weight: bold; }
+    #homepage_img #homepage_txt h1, #homepage_img #homepage_txt h2 {
+      color: black; }
+      #homepage_img #homepage_txt h1 span, #homepage_img #homepage_txt h2 span {
+        padding: 10px;
+        background-color: rgba(119, 211, 83, 0.7); }
 
   #main_content, #all_lines {
     padding: 0 15px 0 15px !important;
-    margin-top: 80px !important; }
+    margin-top: 40px !important; }
     #main_content form, #all_lines form {
-      margin-top: 120px !important; }
+      margin-top: 30px !important; }
 
   #timeline_box {
     margin-top: 30px !important;

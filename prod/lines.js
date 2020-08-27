@@ -118,6 +118,8 @@ const lines = () => $.ajax({
         // RECUPERE L'ID AU CLIC
         $(circle).click(() => {
             localStorage.setItem('line_id', id);
+            localStorage.setItem('line_name', name);
+            localStorage.setItem('mode', mode);
         })
     }; 
 }).fail((error) => {
