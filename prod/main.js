@@ -70,7 +70,7 @@ const tc_indice = () => $.ajax({
 }).done((data) => {
     let i = '';
     // CHANGE LA COULEUR DE L'ICONE SUIVANT L'ETAT DU TRAFIC
-    switch(data.ITC1[0].indice) {
+    switch(data.ITC1[data.ITC1.length - 1].indice) {
         case 0:
             transports.attr('fill', '#7F7F7F');
             i = "Non communiqué";
@@ -108,7 +108,6 @@ const atmo_indice = () => $.ajax({
     type: "GET",
     dataType: "json",
 }).done((data) => {
-    // console.log(data);
 }).fail((error) => {
     console.warn('FAILLLLL');
     console.log(error);
@@ -120,7 +119,6 @@ const events = () => $.ajax({
     type: "GET",
     dataType: "json",
 }).done((data) => {
-    console.log(data);
 }).fail((error) => {
     console.warn('FAILLLLL');
     console.log(error);

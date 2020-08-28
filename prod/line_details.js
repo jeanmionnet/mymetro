@@ -1,9 +1,18 @@
-// DATE (AJUSTE POUR L'HEURE LOCALE)
-let date = new Date();
-let timestamp = date.getTime() + 7200000;
 
 // IDENTIFIANT DE LA LIGNE SELECTIONNEE
 const id = localStorage.getItem('line_id');
+// CHANGE L'ID POUR LE FETCH DES EVENEMENTS ROUTIERS
+let id_rework = [];
+for (const char of id) {
+    if (char !== ':') {
+        id_rework.push(char);
+    } else {
+        id_rework.push('_');
+    }
+}
+id_rework = id_rework.join('');
+
+// MODE TRANSPORT
 const type = localStorage.getItem('mode');
 
 // MODE SVG
@@ -18,8 +27,9 @@ if (type === "TRAM") {
 let direction = 0;
 const swap_btn = $('#swap');
 
-// NOM DE LA LIGNE
+// NOM DE LA LIGNE & NB D'ARRÊTS
 const line = $('#line');
+const nb_arrets = $('#nb_arrets');
 
 // TIMELINE POUR ITINERAIRES & HORAIRES
 const depart = $('#from');
@@ -46,9 +56,8 @@ const line_details = () => $.ajax({
     arrivee.html(`${to}`);
 
     for (let i = 0; i < trip.length; i++) {
-        // HEURE DE PASSAGE
-        let schedule = trip[i].trips[0];
-        schedule = new Date((schedule + 7200) * 1000).toISOString().substr(11, 5);
+        // GENERE LE NOMBRE D'ARRÊTS
+        nb_arrets.html(`Nombre d'arrêts : <span class="muted">${i}</span>`);
 
         // GENERE LE BLOC "ARRET"
         let entry = document.createElement('div');
@@ -66,7 +75,41 @@ const line_details = () => $.ajax({
         entry.append(body);
         let stop = document.createElement('p');
         body.append(stop);
-        stop.innerText = `${trip[i].stopName}`;
+        stop.innerText = `Nombre d'arrêts ${trip[i].stopName}`;
+    }
+}).fail((error) => {
+    console.warn('FAILLLLL');
+    console.log(error);
+})
+
+// RECUPERE LES DONNES DYNAMIQUES DE LA LIGNE EN QUESTION
+const line_event = () => $.ajax({
+    url: `https://data.metromobilite.fr/api/dyn/ligne/json`,
+    type: "GET",
+    dataType: "json",
+}).done((data) => {
+    for (obj in data) {
+        if (obj === id_rework) {
+            // RECUPERE LES DONNES LES PLUS RECENTES
+            let status = data[obj][data[obj].length - 1].nsv_id;
+            switch (status) {
+                case 0:
+                    $("#status").html('Statut : <span class="muted">non communiqué</span>');
+                    break;
+                case 1:
+                    $("#status").html('<span class="bold">Statut</span> : <span class="muted">Service normal</span>');
+                    break;
+                case 2:
+                    $("#status").html('<span class="bold">Statut</span> : service perturbé');
+                    break;
+                case 3:
+                    $("#status").html('<span class="bold">Statut</span> : service très perturbé');
+                    break;
+                case 5:
+                    $("#status").html('<span class="bold">Statut</span> : Hors horaire de service');
+                    break;
+            }
+        };
     }
 }).fail((error) => {
     console.warn('FAILLLLL');
@@ -89,6 +132,8 @@ const swap_direction = () => {
 // CHANGE LA DIRECTION AU CLIC
 swap_btn.click(swap_direction);
 
-
-
-$(document).ready = line_details();
+// LANCE LES FONCTIONS AU DEMARRAGE
+$(document).ready(() => {
+   line_details();
+   line_event();
+})
