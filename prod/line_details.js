@@ -53,11 +53,10 @@ function s_to_hm(s) {
 
 // RECUPERE LES DETAILS D'UNE LIGNE EN PARTICULIER
 const line_details = () => $.ajax({
-    url: `http://data.metromobilite.fr/api/ficheHoraires/json?route=${id}${time}`,
+    url: `http://data.metromobilite.fr/api/ficheHoraires/json?route=${id}&time=${time}`,
     type: "GET",
     dataType: "json",
 }).done((data) => {
-    console.log(data);
     // REFRESH
     timeline.html('');
     $('tbody').html('');
@@ -114,12 +113,12 @@ const line_details = () => $.ajax({
     // CHANGE LES HORAIRES
     // PRECEDENT
     prev.click(() => {
-        time = `&time=${data[0].prevTime}`;
+        time = `${data[0].prevTime}`;
         line_details();
     })
     // SUIVANT
     next.click(() => {
-        time = `&time=${data[0].nextTime}`;
+        time = `${data[0].nextTime}`;
         line_details();
     })
 }).fail((error) => {
