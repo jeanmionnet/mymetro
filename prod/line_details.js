@@ -27,6 +27,11 @@ if (type === "TRAM") {
 let direction = 0;
 const swap_btn = $('#swap');
 
+// PREV & NEXT
+let time = '';
+const prev = $('#prev');
+const next = $('#next');
+
 // NOM DE LA LIGNE & NB D'ARRÊTS
 const line = $('#line');
 const nb_arrets = $('#nb_arrets');
@@ -39,17 +44,16 @@ const timeline = $('.timeline');
 // CHANGE LES SECONDES EN HEURE
 function s_to_hm(s) {
     s += 7200;
-    var h = Math.floor(s/3600); // AJOUTE DEUX HEURES POUR SE METTRE AU NIVEAU DE L'API
+    let h = Math.floor(s/3600); // AJOUTE DEUX HEURES POUR SE METTRE AU NIVEAU DE L'API
     s -= h*3600;
-    var m = Math.floor(s/60);
+    let m = Math.floor(s/60);
     s -= m*60;
     return h+"h"+(m < 10 ? '0'+m : m);
 }
 
-
 // RECUPERE LES DETAILS D'UNE LIGNE EN PARTICULIER
 const line_details = () => $.ajax({
-    url: `http://data.metromobilite.fr/api/ficheHoraires/json?route=${id}`,
+    url: `http://data.metromobilite.fr/api/ficheHoraires/json?route=${id}${time}`,
     type: "GET",
     dataType: "json",
 }).done((data) => {
@@ -85,6 +89,8 @@ const line_details = () => $.ajax({
         let arret = document.createElement('td');
         block.append(arret);
         arret.innerHTML = `${trip[i].stopName}`;
+
+        // AJOUTE LES HORAIRES CORRESPONDANTS
         for (let j = 0; j < trip[i].trips.length; ++j) {
             let hour = document.createElement('td');
             block.append(hour);
@@ -104,6 +110,18 @@ const line_details = () => $.ajax({
         body.append(stop);
         stop.innerText = `${trip[i].stopName}`;
     }
+
+    // CHANGE LES HORAIRES
+    // PRECEDENT
+    prev.click(() => {
+        time = `&time=${data[0].prevTime}`;
+        line_details();
+    })
+    // SUIVANT
+    next.click(() => {
+        time = `&time=${data[0].nextTime}`;
+        line_details();
+    })
 }).fail((error) => {
     console.warn('FAILLLLL');
     console.log(error);

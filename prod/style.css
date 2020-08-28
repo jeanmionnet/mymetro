@@ -352,8 +352,21 @@ body {
             body #horaires #trajet #swap:hover svg path {
               fill: #77D353;
               transition: all 0.1s ease-in; }
+    body #horaires #table_control {
+      display: flex;
+      flex-direction: row-reverse;
+      margin-bottom: 10px; }
+      body #horaires #table_control #next {
+        margin-right: 10px;
+        margin-left: 10px; }
+      body #horaires #table_control svg {
+        transition: all 0.1s ease-in; }
+      body #horaires #table_control #next:hover, body #horaires #table_control #prev:hover {
+        cursor: pointer; }
+        body #horaires #table_control #next:hover svg path, body #horaires #table_control #prev:hover svg path {
+          fill: #77D353;
+          transition: all 0.1s ease-in; }
     body #horaires #hr_tableau {
-      margin-top: 20px;
       width: 100%;
       border: 3px solid #77D353;
       background-color: ivory;
