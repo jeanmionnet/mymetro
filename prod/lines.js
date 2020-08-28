@@ -120,6 +120,7 @@ const lines = () => $.ajax({
             localStorage.setItem('line_id', id);
             localStorage.setItem('line_name', name);
             localStorage.setItem('mode', mode);
+            localStorage.setItem('color', color);
         })
     }; 
 }).fail((error) => {

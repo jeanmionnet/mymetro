@@ -36,16 +36,31 @@ const depart = $('#from');
 const arrivee = $('#to');
 const timeline = $('.timeline');
 
+// CHANGE LES SECONDES EN HEURE
+function s_to_hm(s) {
+    s += 7200;
+    var h = Math.floor(s/3600); // AJOUTE DEUX HEURES POUR SE METTRE AU NIVEAU DE L'API
+    s -= h*3600;
+    var m = Math.floor(s/60);
+    s -= m*60;
+    return h+"h"+(m < 10 ? '0'+m : m);
+}
+
+
 // RECUPERE LES DETAILS D'UNE LIGNE EN PARTICULIER
 const line_details = () => $.ajax({
     url: `http://data.metromobilite.fr/api/ficheHoraires/json?route=${id}`,
     type: "GET",
     dataType: "json",
 }).done((data) => {
+    console.log(data);
     // REFRESH
     timeline.html('');
+    $('tbody').html('');
+
     // NOM DE LA LIGNE
     line.html(`${svg}  Ligne ${localStorage.getItem('line_name')}`);
+    line.css('text-shadow', `3px 2px 1px #${localStorage.getItem('color')}`);
     // LISTE DES ARRETS
     const trip = data[direction].arrets;
     // GENERATE TIMELINE
@@ -57,12 +72,24 @@ const line_details = () => $.ajax({
 
     for (let i = 0; i < trip.length; i++) {
         // GENERE LE NOMBRE D'ARRÊTS
-        nb_arrets.html(`Nombre d'arrêts : <span class="muted">${i}</span>`);
+        nb_arrets.html(`Nombre d'arrêts : <span class="muted">${i + 1}</span>`);
 
         // GENERE LE BLOC "ARRET"
         let entry = document.createElement('div');
         entry.className = 'entry';
         timeline.append(entry);
+
+        // AJOUTE LES ARRETS AU TABLEAU DES HORAIRES
+        let block = document.createElement('tr');
+        $('tbody').append(block);
+        let arret = document.createElement('td');
+        block.append(arret);
+        arret.innerHTML = `${trip[i].stopName}`;
+        for (let j = 0; j < trip[i].trips.length; ++j) {
+            let hour = document.createElement('td');
+            block.append(hour);
+            hour.innerHTML = `${s_to_hm(trip[i].trips[j])}`;
+        }
 
         // GENERE LA PARTIE "HORAIRE"
         let title = document.createElement('div');
@@ -75,7 +102,7 @@ const line_details = () => $.ajax({
         entry.append(body);
         let stop = document.createElement('p');
         body.append(stop);
-        stop.innerText = `Nombre d'arrêts ${trip[i].stopName}`;
+        stop.innerText = `${trip[i].stopName}`;
     }
 }).fail((error) => {
     console.warn('FAILLLLL');
