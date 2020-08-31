@@ -93,7 +93,11 @@ const line_details = () => $.ajax({
         for (let j = 0; j < trip[i].trips.length; ++j) {
             let hour = document.createElement('td');
             block.append(hour);
-            hour.innerHTML = `${s_to_hm(trip[i].trips[j])}`;
+            if (trip[i].trips[j] === '|') {
+                hour.innerHTML = '|';
+            } else {
+                hour.innerHTML = `${s_to_hm(trip[i].trips[j])}`;
+            }
         }
 
         // GENERE LA PARTIE "HORAIRE"
@@ -112,13 +116,14 @@ const line_details = () => $.ajax({
 
     // CHANGE LES HORAIRES
     // PRECEDENT
-    prev.click(() => {
+    prev.one('click', () => {
         time = `${data[0].prevTime}`;
         line_details();
     })
     // SUIVANT
-    next.click(() => {
+    next.one('click', () => {
         time = `${data[0].nextTime}`;
+
         line_details();
     })
 }).fail((error) => {

@@ -255,7 +255,8 @@ body {
     display: flex;
     flex-direction: row; }
   body #itineraire {
-    min-height: 100vh;
+    height: auto;
+    border-radius: 20px;
     width: 60vw;
     margin: 40px 40px auto 40px;
     font-family: "Ubuntu-Regular";
@@ -321,65 +322,102 @@ body {
             body #itineraire .timeline .entry .body p:first-child {
               margin-top: 0;
               font-weight: 400; }
-  body #horaires {
+  body #right_layout {
     margin: 40px 40px auto 0px;
-    width: 100%;
-    padding: 20px;
-    background-color: #5A6978;
-    border-radius: 20px;
-    box-shadow: 10px 10px 20px -6px rgba(0, 0, 0, 0.6); }
-    body #horaires #trajet {
-      font-family: "Ubuntu-Bold";
-      color: #fff;
-      display: flex; }
-      body #horaires #trajet #from {
-        margin-right: 10px; }
-      body #horaires #trajet #to {
-        margin-left: 10px; }
-      body #horaires #trajet #swap {
-        padding-top: 20px; }
-        body #horaires #trajet #swap svg {
-          border: 3px solid #77D353;
-          border-radius: 3px;
-          transition: all 0.1s ease-in; }
-          body #horaires #trajet #swap svg path {
+    width: 100%; }
+    body #right_layout #horaires {
+      padding: 20px;
+      background-color: #5A6978;
+      border-radius: 20px;
+      box-shadow: 10px 10px 20px -6px rgba(0, 0, 0, 0.6);
+      margin-bottom: 40px; }
+      body #right_layout #horaires #trajet {
+        font-family: "Ubuntu-Bold";
+        color: #fff;
+        display: flex; }
+        body #right_layout #horaires #trajet #from {
+          margin-right: 10px; }
+        body #right_layout #horaires #trajet #to {
+          margin-left: 10px; }
+        body #right_layout #horaires #trajet #swap {
+          padding-top: 20px; }
+          body #right_layout #horaires #trajet #swap svg {
+            border: 3px solid #77D353;
+            border-radius: 3px;
             transition: all 0.1s ease-in; }
-        body #horaires #trajet #swap:hover {
-          cursor: pointer; }
-          body #horaires #trajet #swap:hover svg {
-            border: 3px solid #fff;
-            transition: all 0.1s ease-in; }
-            body #horaires #trajet #swap:hover svg path {
-              fill: #77D353;
+            body #right_layout #horaires #trajet #swap svg path {
               transition: all 0.1s ease-in; }
-    body #horaires #table_control {
-      display: flex;
-      flex-direction: row-reverse;
-      margin-bottom: 10px; }
-      body #horaires #table_control #next {
-        margin-right: 10px;
-        margin-left: 10px; }
-      body #horaires #table_control svg {
-        transition: all 0.1s ease-in; }
-      body #horaires #table_control #next:hover, body #horaires #table_control #prev:hover {
-        cursor: pointer; }
-        body #horaires #table_control #next:hover svg path, body #horaires #table_control #prev:hover svg path {
-          fill: #77D353;
+          body #right_layout #horaires #trajet #swap:hover {
+            cursor: pointer; }
+            body #right_layout #horaires #trajet #swap:hover svg {
+              border: 3px solid #fff;
+              transition: all 0.1s ease-in; }
+              body #right_layout #horaires #trajet #swap:hover svg path {
+                fill: #77D353;
+                transition: all 0.1s ease-in; }
+      body #right_layout #horaires #table_control {
+        display: flex;
+        flex-direction: row-reverse;
+        margin-bottom: 10px; }
+        body #right_layout #horaires #table_control #next {
+          margin-right: 10px;
+          margin-left: 10px; }
+        body #right_layout #horaires #table_control svg {
           transition: all 0.1s ease-in; }
-    body #horaires #hr_tableau {
-      width: 100%;
-      border: 3px solid #77D353;
-      background-color: ivory;
-      font-family: "Ubuntu-regular";
-      border-collapse: collapse; }
-      body #horaires #hr_tableau tr {
-        border: 1px solid #5A6978; }
-        body #horaires #hr_tableau tr td {
-          padding: 5px;
-          text-align: center; }
-        body #horaires #hr_tableau tr td:first-child {
-          text-align: left;
-          font-family: "Ubuntu-Bold"; }
+        body #right_layout #horaires #table_control #next:hover, body #right_layout #horaires #table_control #prev:hover {
+          cursor: pointer; }
+          body #right_layout #horaires #table_control #next:hover svg path, body #right_layout #horaires #table_control #prev:hover svg path {
+            fill: #77D353;
+            transition: all 0.1s ease-in; }
+      body #right_layout #horaires #hr_tableau {
+        width: 100%;
+        border: 3px solid #77D353;
+        background-color: ivory;
+        font-family: "Ubuntu-regular";
+        border-collapse: collapse; }
+        body #right_layout #horaires #hr_tableau tr {
+          border: 1px solid #5A6978; }
+          body #right_layout #horaires #hr_tableau tr td {
+            padding: 5px;
+            text-align: center; }
+          body #right_layout #horaires #hr_tableau tr td:first-child {
+            text-align: left;
+            font-family: "Ubuntu-Bold"; }
+  body #map_layouts {
+    display: flex;
+    flex-direction: row; }
+    body #map_layouts #left_layout {
+      width: 50vw;
+      height: 100vh;
+      overflow: scroll; }
+      body #map_layouts #left_layout::-webkit-scrollbar {
+        display: none; }
+      body #map_layouts #left_layout #all_lines {
+        padding: 15px;
+        padding-top: 0px; }
+        body #map_layouts #left_layout #all_lines #tram_section a, body #map_layouts #left_layout #all_lines #chrono a, body #map_layouts #left_layout #all_lines #proximo a, body #map_layouts #left_layout #all_lines #flexo a, body #map_layouts #left_layout #all_lines #tad a {
+          width: 50px;
+          height: 50px; }
+        body #map_layouts #left_layout #all_lines #pays_voironnais a, body #map_layouts #left_layout #all_lines #tougo a, body #map_layouts #left_layout #all_lines #transisere a {
+          width: 100px;
+          height: 50px; }
+        body #map_layouts #left_layout #all_lines #pays_voironnais h1, body #map_layouts #left_layout #all_lines #tougo h1, body #map_layouts #left_layout #all_lines #transisere h1 {
+          margin-bottom: 30px; }
+        body #map_layouts #left_layout #all_lines p {
+          line-height: 25px;
+          font-family: "Ubuntu-Bold";
+          font-size: 12px; }
+    body #map_layouts #right_layout {
+      margin-top: 80px;
+      margin-right: 15px;
+      padding: 20px;
+      background-color: #5A6978;
+      border-radius: 20px;
+      box-shadow: 10px 10px 20px -6px rgba(0, 0, 0, 0.6); }
+      body #map_layouts #right_layout #lines_map {
+        width: auto;
+        height: 70vh;
+        z-index: 0; }
 
 @media (max-width: 992px) {
   #navbar {
@@ -431,24 +469,35 @@ body {
 
   .wrapper {
     flex-direction: column-reverse !important; }
+    .wrapper #itineraire {
+      margin-top: 30px !important;
+      width: auto !important;
+      height: auto !important;
+      border-radius: 20px; }
+    .wrapper #horaires {
+      margin-left: 0px !important;
+      margin-right: 0px !important;
+      margin-top: 30px !important;
+      width: auto !important; }
+      .wrapper #horaires #trajet {
+        display: block !important;
+        text-align: center; }
+        .wrapper #horaires #trajet #from {
+          margin-bottom: 0; }
+        .wrapper #horaires #trajet #to {
+          margin-left: 0; }
+        .wrapper #horaires #trajet #swap svg {
+          transform: rotate(90deg); }
 
-  #itineraire {
-    margin-top: 30px !important;
-    width: auto !important; }
-
-  #horaires {
-    margin-left: 40px !important;
-    margin-top: 30px !important;
-    width: auto !important; }
-    #horaires #trajet {
-      display: block !important;
-      text-align: center; }
-      #horaires #trajet #from {
-        margin-bottom: 0; }
-      #horaires #trajet #to {
-        margin-left: 0; }
-      #horaires #trajet #swap svg {
-        transform: rotate(90deg); } }
+  #map_layouts {
+    flex-direction: column-reverse !important; }
+    #map_layouts #all_lines {
+      margin-top: 0px !important; }
+    #map_layouts #right_layout {
+      width: auto;
+      margin: 15px !important; }
+    #map_layouts #left_layout {
+      width: auto !important; } }
 @media (max-width: 768px) {
   #main_content form {
     text-align: center; }
@@ -464,6 +513,9 @@ body {
     font-family: "Ubuntu-Bold";
     font-size: 16px !important; }
   #all_lines #tad p {
+    font-size: 12px !important; }
+
+  #hr_tableau td {
     font-size: 12px !important; } }
 
 /*# sourceMappingURL=style.css.map */

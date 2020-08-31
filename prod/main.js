@@ -141,3 +141,5 @@ $(document).ready(() => {
     atmo_indice();
     events();
 })
+
+// const grenoble_view = '[45.1669, 5.7175], 10.8';
