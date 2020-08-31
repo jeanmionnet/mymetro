@@ -10,6 +10,14 @@ let scolaire_section = $("#scolaire");
 let tad_section = $("#tad");
 let snc_section = $("#snc");
 
+// INIT MAP
+let mymap = L.map('lines_map').setView([45.188529, 5.724524], 13);
+
+// FIRST MAP LAYERS
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+}).addTo(mymap);
+
 // RECUPERE TOUTES LES LIGNES DE LA REGION
 const lines = () => $.ajax({
     url: 'http://data.metromobilite.fr/api/routers/default/index/routes',
@@ -128,16 +136,49 @@ const lines = () => $.ajax({
 // Lance la recherche des lignes au démarrage & initialise la map
 $(document).ready(() => {
     lines()
-    // INIT MAP
-    let mymap = L.map('lines_map').setView([45.188529, 5.724524], 13);
-
-    // FIRST MAP LAYERS
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-    }).addTo(mymap);
 });
 
 // LINE SELECTION
 $(document).on('click', '.circle', function () {
     $(this).toggleClass('actived_line');
+
+    // RECUPERE LE TRACE DE LA LIGNE
+    $.ajax({
+        url: `http://data.metromobilite.fr/api/lines/json?types=ligne&codes=${this.id}`,
+        type: "GET",
+        dataType: "json",
+    }).done((data) => {
+        const geo = data.features[0].geometry.coordinates[0]; // LISTE DES COORDONNEES GPS
+        const color = `rgb(${data.features[0].properties.COULEUR})`;
+
+        // CREE LA LINE GRACE AUX COORDONEES
+        let myline = [{
+            "type": "LineString",
+            "coordinates": geo
+        }];
+
+        // LUI DONNE UN STYLE
+        let myStyle = {
+            "color": color,
+            "weight": 5,
+            "opacity": 0.8
+        };
+
+        // L'AJOUTE A LA MAP
+        L.geoJSON(myline, {
+            style: myStyle
+        }).addTo(mymap);
+
+        console.log(myline);
+
+        // MARQUEURS - TEMPORAIRE
+/*         for (let i = 0; i < geo.length; ++i) {
+            L.marker([geo[i][1], geo[i][0]]).addTo(mymap);
+        } */
+    }).fail((error) => {
+        console.warn('FAILLLLL');
+        console.log(error);
+    })
+    // MAP GENERATION GOES HERE
+
 });
