@@ -208,10 +208,10 @@ body {
       margin-bottom: 30px;
       padding-left: 10px;
       opacity: 0.8; }
-    body #all_lines #tram_section a, body #all_lines #chrono a, body #all_lines #proximo a, body #all_lines #flexo a, body #all_lines #tad a {
+    body #all_lines #tram_section a, body #all_lines #tram_section div, body #all_lines #chrono a, body #all_lines #chrono div, body #all_lines #proximo a, body #all_lines #proximo div, body #all_lines #flexo a, body #all_lines #flexo div, body #all_lines #tad a, body #all_lines #tad div {
       width: 100px;
       height: 100px; }
-    body #all_lines #pays_voironnais a, body #all_lines #tougo a, body #all_lines #transisere a {
+    body #all_lines #pays_voironnais a, body #all_lines #pays_voironnais div, body #all_lines #tougo a, body #all_lines #tougo div, body #all_lines #transisere a, body #all_lines #transisere div {
       width: 150px;
       height: 100px; }
     body #all_lines #pays_voironnais h1, body #all_lines #tougo h1, body #all_lines #transisere h1 {
@@ -395,18 +395,26 @@ body {
       body #map_layouts #left_layout #all_lines {
         padding: 15px;
         padding-top: 0px; }
-        body #map_layouts #left_layout #all_lines #tram_section a, body #map_layouts #left_layout #all_lines #chrono a, body #map_layouts #left_layout #all_lines #proximo a, body #map_layouts #left_layout #all_lines #flexo a, body #map_layouts #left_layout #all_lines #tad a {
+        body #map_layouts #left_layout #all_lines #tram_section a, body #map_layouts #left_layout #all_lines #tram_section div, body #map_layouts #left_layout #all_lines #chrono a, body #map_layouts #left_layout #all_lines #chrono div, body #map_layouts #left_layout #all_lines #proximo a, body #map_layouts #left_layout #all_lines #proximo div, body #map_layouts #left_layout #all_lines #flexo a, body #map_layouts #left_layout #all_lines #flexo div, body #map_layouts #left_layout #all_lines #tad a, body #map_layouts #left_layout #all_lines #tad div {
           width: 50px;
-          height: 50px; }
-        body #map_layouts #left_layout #all_lines #pays_voironnais a, body #map_layouts #left_layout #all_lines #tougo a, body #map_layouts #left_layout #all_lines #transisere a {
+          height: 50px;
+          opacity: 0.6; }
+        body #map_layouts #left_layout #all_lines #tram_section h1, body #map_layouts #left_layout #all_lines #chrono h1, body #map_layouts #left_layout #all_lines #proximo h1, body #map_layouts #left_layout #all_lines #flexo h1, body #map_layouts #left_layout #all_lines #tad h1 {
+          margin-bottom: 30px; }
+        body #map_layouts #left_layout #all_lines #pays_voironnais a, body #map_layouts #left_layout #all_lines #pays_voironnais div, body #map_layouts #left_layout #all_lines #tougo a, body #map_layouts #left_layout #all_lines #tougo div, body #map_layouts #left_layout #all_lines #transisere a, body #map_layouts #left_layout #all_lines #transisere div {
           width: 100px;
-          height: 50px; }
+          height: 50px;
+          opacity: 0.6; }
         body #map_layouts #left_layout #all_lines #pays_voironnais h1, body #map_layouts #left_layout #all_lines #tougo h1, body #map_layouts #left_layout #all_lines #transisere h1 {
           margin-bottom: 30px; }
         body #map_layouts #left_layout #all_lines p {
           line-height: 25px;
           font-family: "Ubuntu-Bold";
           font-size: 12px; }
+        body #map_layouts #left_layout #all_lines .actived_line {
+          opacity: 1;
+          filter: brightness(1.5);
+          box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.6); }
     body #map_layouts #right_layout {
       margin-top: 80px;
       margin-right: 15px;
@@ -502,10 +510,10 @@ body {
   #main_content form {
     text-align: center; }
 
-  #all_lines #tram_section a, #all_lines #chrono a, #all_lines #proximo a, #all_lines #flexo a, #all_lines #tad a {
+  #all_lines #tram_section a, #all_lines #tram_section div, #all_lines #chrono a, #all_lines #chrono div, #all_lines #proximo a, #all_lines #proximo div, #all_lines #flexo a, #all_lines #flexo div, #all_lines #tad a, #all_lines #tad div {
     width: 50px !important;
     height: 50px !important; }
-  #all_lines #pays_voironnais a, #all_lines #tougo a, #all_lines #transisere a {
+  #all_lines #pays_voironnais a, #all_lines #pays_voironnais div, #all_lines #tougo a, #all_lines #tougo div, #all_lines #transisere a, #all_lines #transisere div {
     width: 100px !important;
     height: 50px !important; }
   #all_lines p {

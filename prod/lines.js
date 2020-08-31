@@ -33,7 +33,8 @@ const lines = () => $.ajax({
             'href': './line_details.html',
             'alt': `${mode} ${name}`
         });
-        let line = document.createElement('p'); // Format à changer - PHASE TEST
+        circle.id = id;
+        let line = document.createElement('p');
 
         // TRAMS
         if (mode === "TRAM") {
