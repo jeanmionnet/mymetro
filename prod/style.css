@@ -208,7 +208,7 @@ body {
       margin-bottom: 30px;
       padding-left: 10px;
       opacity: 0.8; }
-    body #all_lines #tram_section a, body #all_lines #tram_section div, body #all_lines #chrono a, body #all_lines #chrono div, body #all_lines #proximo a, body #all_lines #proximo div, body #all_lines #flexo a, body #all_lines #flexo div, body #all_lines #tad a, body #all_lines #tad div {
+    body #all_lines #tram_section a, body #all_lines #tram_section div, body #all_lines #chrono a, body #all_lines #chrono div, body #all_lines #proximo a, body #all_lines #proximo div, body #all_lines #flexo a, body #all_lines #flexo div, body #all_lines #tad a, body #all_lines #tad div, body #all_lines #fav_box a, body #all_lines #fav_box div {
       width: 100px;
       height: 100px; }
     body #all_lines #pays_voironnais a, body #all_lines #pays_voironnais div, body #all_lines #tougo a, body #all_lines #tougo div, body #all_lines #transisere a, body #all_lines #transisere div {
@@ -251,6 +251,13 @@ body {
       margin-bottom: 0; }
     body #intro h2 {
       margin-left: 40px; }
+    body #intro #fav svg {
+      transition: all 0.1s ease-in; }
+      body #intro #fav svg:hover {
+        cursor: pointer; }
+        body #intro #fav svg:hover path {
+          fill: #fff;
+          transition: all 0.1s ease-in; }
   body .wrapper {
     display: flex;
     flex-direction: row; }
@@ -395,11 +402,11 @@ body {
       body #map_layouts #left_layout #all_lines {
         padding: 15px;
         padding-top: 0px; }
-        body #map_layouts #left_layout #all_lines #tram_section a, body #map_layouts #left_layout #all_lines #tram_section div, body #map_layouts #left_layout #all_lines #chrono a, body #map_layouts #left_layout #all_lines #chrono div, body #map_layouts #left_layout #all_lines #proximo a, body #map_layouts #left_layout #all_lines #proximo div, body #map_layouts #left_layout #all_lines #flexo a, body #map_layouts #left_layout #all_lines #flexo div, body #map_layouts #left_layout #all_lines #tad a, body #map_layouts #left_layout #all_lines #tad div {
+        body #map_layouts #left_layout #all_lines #tram_section a, body #map_layouts #left_layout #all_lines #tram_section div, body #map_layouts #left_layout #all_lines #chrono a, body #map_layouts #left_layout #all_lines #chrono div, body #map_layouts #left_layout #all_lines #proximo a, body #map_layouts #left_layout #all_lines #proximo div, body #map_layouts #left_layout #all_lines #flexo a, body #map_layouts #left_layout #all_lines #flexo div, body #map_layouts #left_layout #all_lines #tad a, body #map_layouts #left_layout #all_lines #tad div, body #map_layouts #left_layout #all_lines #fav_box a, body #map_layouts #left_layout #all_lines #fav_box div {
           width: 50px;
           height: 50px;
           opacity: 0.6; }
-        body #map_layouts #left_layout #all_lines #tram_section h1, body #map_layouts #left_layout #all_lines #chrono h1, body #map_layouts #left_layout #all_lines #proximo h1, body #map_layouts #left_layout #all_lines #flexo h1, body #map_layouts #left_layout #all_lines #tad h1 {
+        body #map_layouts #left_layout #all_lines #tram_section h1, body #map_layouts #left_layout #all_lines #chrono h1, body #map_layouts #left_layout #all_lines #proximo h1, body #map_layouts #left_layout #all_lines #flexo h1, body #map_layouts #left_layout #all_lines #tad h1, body #map_layouts #left_layout #all_lines #fav_box h1 {
           margin-bottom: 30px; }
         body #map_layouts #left_layout #all_lines #pays_voironnais a, body #map_layouts #left_layout #all_lines #pays_voironnais div, body #map_layouts #left_layout #all_lines #tougo a, body #map_layouts #left_layout #all_lines #tougo div, body #map_layouts #left_layout #all_lines #transisere a, body #map_layouts #left_layout #all_lines #transisere div {
           width: 100px;
@@ -426,6 +433,8 @@ body {
         width: auto;
         height: 70vh;
         z-index: 0; }
+  body #fav_header {
+    margin: 40px; }
 
 @media (max-width: 992px) {
   #navbar {
@@ -505,7 +514,14 @@ body {
       width: auto;
       margin: 15px !important; }
     #map_layouts #left_layout {
-      width: auto !important; } }
+      width: auto !important; }
+
+  #fav_header {
+    text-align: center;
+    margin-bottom: 15px !important; }
+
+  #fav_box h3 {
+    text-align: center; } }
 @media (max-width: 768px) {
   #main_content form {
     text-align: center; }

@@ -21,7 +21,7 @@
     <meta property="twitter:title" content="myMetro">
     <meta property="twitter:description" content="Sur le réseau TAG et Transisère, en Vélo, en Voiture ou en Train, mobilites-m vous informe sur vos déplacements dans Grenoble et l'aire Grenobloise.">
     <meta property="twitter:image" content="https://store-images.s-microsoft.com/image/apps.65024.13510798885978515.7731c0b5-e283-433c-9f78-1d036a9fd46a.6c6db849-74be-4e69-a97d-ad7af68ba97d?mode=scale&q=90&h=200&w=200&background=%23464646">
-    <title>myMétro</title>
+    <title>myMétro - Favoris</title>
 
     <!-- CSS -->
     <link rel="stylesheet" href="prod/style.css">
@@ -141,21 +141,15 @@
         </div>
     </div>
 
-    <!-- IMG ACCUEIL -->
-    <div id="homepage_img">
-        <div id="homepage_txt">
-            <h1><span>Se déplacer dans l'agglomération Grenobloise,</span></h1>
-            <h2><span>c'est facile avec myMetro !</span></h2>
-        </div>
-    </div>
+    <!-- FAVORIS -->
+    <h1 id="fav_header">Mes favoris</h1>
 
-    <!-- CONTENU PRINCIPAL ACCUEIL -->
-    <div id="main_content">
-        <form action="GET">
-            <h2><label for="search">RECHERCHER</label></h2>
-            <input type="text" id="search" placeholder="Chercher un lieu, un arrêt...">
-        </form>
-        <!-- INFOS TRAFICS ICI -->
+    <!-- TOUTES LES LIGNES -->
+    <div id="all_lines">
+        <!-- Trams -->
+        <div class="categories" id="fav_box">
+            <h3>Aucun favoris pour l'instant</h3>
+        </div>
     </div>
 
     <!-- JQUERY  -->
@@ -163,5 +157,6 @@
 
     <!-- JS -->
     <script src="prod/main.js"></script>
+    <script src="prod/fav.js"></script>
 </body>
 </html>
