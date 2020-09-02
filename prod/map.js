@@ -138,6 +138,11 @@ $(document).ready(() => {
     lines()
 });
 
+// JSON OBJECT
+const lines_obj = {};
+const markers_obj = {};
+let geo;
+
 // LINE SELECTION
 $(document).on('click', '.circle', function () {
     $(this).toggleClass('actived_line');
@@ -150,25 +155,46 @@ $(document).on('click', '.circle', function () {
     }).done((data) => {
         const color = `rgb(${data.features[0].properties.COULEUR})`;
         const id = this.id;
-        
-        const remove = (layer) => {
-            if (layer) {
-                L.removeLayer();
-            }
-        }
 
-        L.geoJSON(data, {
+        geo = L.geoJSON(data, {
             style: function (feature) {
                 return {
                     color: color,
                     weight: 4,
                     opacity: 0.75
                 };
-            }
+        }
         }).bindPopup(function (layer) {
-            remove(layer);
             return layer.feature.properties.description;
-        }).addTo(mymap);
+        })
+
+        if (!lines_obj[data.features[0].properties.CODE]) {
+            lines_obj[data.features[0].properties.CODE] = geo;
+            lines_obj[data.features[0].properties.CODE].addTo(mymap);
+            // ARRÊTS
+
+        } else {
+            lines_obj[data.features[0].properties.CODE].removeFrom(mymap);
+            lines_obj[data.features[0].properties.CODE] = undefined;
+            // ARRÊTS
+            
+        }
+    }).fail((error) => {
+        console.warn('FAILLLLL');
+        console.log(error);
+    })
+
+    // RECUPERE LES ARRETS
+    $.ajax({
+        url: `http://data.metromobilite.fr/api/ficheHoraires/json?route=${this.id}`,
+        type: "GET",
+        dataType: "json",
+    }).done((data) => {
+        for (let m = 0; m < data[0].arrets.length; ++m) {
+            L.marker([data[0].arrets[m].lat, data[0].arrets[m].lon]).addTo(mymap)
+            .bindPopup(`${data[0].arrets[m].stopName}`)
+            .openPopup();
+        }
     }).fail((error) => {
         console.warn('FAILLLLL');
         console.log(error);

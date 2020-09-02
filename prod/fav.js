@@ -3,7 +3,7 @@ const fav_box = $('#fav_box');
 const fav_list = localStorage.getItem('fav');
 
 // ENLEVE LE TEXTE SI IL Y A DU CONTENU
-console.log(fav_box.is(':empty'));
+
 
 // RECUPERE TOUTES LES LIGNES DE LA REGION
 const fav = () => $.ajax({
