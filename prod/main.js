@@ -30,7 +30,7 @@ const tr_indice = () => $.ajax({
 }).done((data) => {
     let i = '';
     // CHANGE LA COULEUR DE L'ICONE SUIVANT L'ETAT DU TRAFIC
-    switch(data.IR1[1].indice) {
+    switch(data.IR1[0].indice) {
         case 0:
             road.attr('fill', '#7F7F7F');
             i = "Non communiqué";
@@ -102,7 +102,7 @@ const tc_indice = () => $.ajax({
     console.log(error);
 })
 
-// RECUPERE L'INDICE ATMOSPHERIQUE
+/* // RECUPERE L'INDICE ATMOSPHERIQUE
 const atmo_indice = () => $.ajax({
     url: 'http://data.metromobilite.fr/api/dyn/indiceAtmoFull/json',
     type: "GET",
@@ -122,9 +122,9 @@ const events = () => $.ajax({
 }).fail((error) => {
     console.warn('FAILLLLL');
     console.log(error);
-})
+}) */
 
-// AFFICHE LA BANNIERE 
+// LANCE LES FETCHS AU DEMARRAGE & LA BANNIERE
 $(document).ready(() => {
     setTimeout(() => {
         info.toggleClass('display_info');
@@ -132,14 +132,7 @@ $(document).ready(() => {
     setInterval(() => {
         info.toggleClass('display_info')
     }, 20000)
-});
 
-// LANCE LES FETCHS AU DEMARRAGE
-$(document).ready(() => {
     tr_indice();
     tc_indice();
-    atmo_indice();
-    events();
 })
-
-// const grenoble_view = '[45.1669, 5.7175], 10.8';

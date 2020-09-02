@@ -37,8 +37,6 @@ if (localStorage.getItem('fav') === null) {
     fav_obj = {
         list: [],
     }
-    console.log('Création de la liste');
-    console.log(fav_obj);
 } else {
     fav_obj = JSON.parse(localStorage.getItem('fav'));
 
@@ -60,7 +58,6 @@ $('#fav_svg').click(() => {
         $('#fav_svg').html(fav_false);
         let index = fav_obj.list.indexOf(id);
         fav_obj.list.splice(index, 1);
-        console.log(id);
         localStorage.setItem('fav', JSON.stringify(fav_obj))
         fav = false;
     }
@@ -91,6 +88,11 @@ function s_to_hm(s) {
     s -= h*3600;
     let m = Math.floor(s/60);
     s -= m*60;
+    if (h >= 24) {
+        h -= 24;
+    } else if(h < 0) {
+        h += 24;
+    }
     return h+"h"+(m < 10 ? '0'+m : m);
 }
 

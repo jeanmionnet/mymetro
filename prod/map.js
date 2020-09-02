@@ -150,43 +150,25 @@ $(document).on('click', '.circle', function () {
     }).done((data) => {
         const color = `rgb(${data.features[0].properties.COULEUR})`;
         const id = this.id;
-        console.log(data);
-
-        // CREE LA LIGNE GRACE AUX COORDONEES
-        let my_line = [{
-            "type": "Feature",
-            "geometry": {
-                "type": "LineString",
-                "coordinates": data // LISTE DES COORDONNEES GPS
+        
+        const remove = (layer) => {
+            if (layer) {
+                L.removeLayer();
             }
-        }];
-
-        // LUI DONNE UN STYLE
-        let myStyle = {
-            "color": color,
-            "weight": 5,
-            "opacity": 0.8
-        };
-
-        // L'AJOUTE A LA MAP
-        L.geoJSON(my_line, {
-            style: myStyle,
-            onEachFeature: (feature, layer) => {
-                layer.tag_id = id;
-            }
-        }).addTo(mymap);
-
-        // REMOVE LAYERS 
-        const remove = () => {
-            mymap.eachLayer((layer) => {
-                if ( layer.tag_id &&  layer.tag_id === id) {
-                    mymap.removeLayer(layer)
-                }
-            });
         }
 
-        remove();
-
+        L.geoJSON(data, {
+            style: function (feature) {
+                return {
+                    color: color,
+                    weight: 4,
+                    opacity: 0.75
+                };
+            }
+        }).bindPopup(function (layer) {
+            remove(layer);
+            return layer.feature.properties.description;
+        }).addTo(mymap);
     }).fail((error) => {
         console.warn('FAILLLLL');
         console.log(error);
